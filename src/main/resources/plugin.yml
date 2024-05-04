@@ -1,0 +1,12 @@
+name: ResetSign
+version: '${project.version}'
+main: com.github.saidred.resetsign.ResetSign
+api-version: '1.20'
+
+commands:
+  resetSign:
+    description: click on the sign to reset item NBT.
+    usage: /resetSign (targeting sign)
+  configReload:
+    description: click on the sign to reset item NBT.
+    usage: /configReload

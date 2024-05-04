@@ -1,0 +1,6 @@
+gameMode:
+  CREATIVE: true
+  SURVIVAL: true
+  ADVENTURE: true
+  SPECTATOR: true
+playerLogMode: false
