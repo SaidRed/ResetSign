@@ -4,20 +4,29 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ResetSign extends JavaPlugin {
+
+    private FileConfiguration co;
+
     @Override
     public void onEnable() {
-        // config.ymlが存在しない場合はファイルに出力します。
         saveDefaultConfig();
-        FileConfiguration config = getConfig();
+        co = getConfig();
 
-        this.getServer().getPluginManager().registerEvents(new ResetSignEvent(this,config),this);
+        this.getServer().getPluginManager().registerEvents(new ResetSignEvent(this,co),this);
 
-        getCommand("resetSign").setExecutor(new ResetSignCommand(this,config));
-        getCommand("configReload").setExecutor(new ConfigReload());
+        getCommand("resetSign").setExecutor(new ResetSignCommand(this,co));
+        getCommand("configReload").setExecutor(new ConfigReload(this,co));
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public FileConfiguration getResetSignConfig(){
+        return co;
+    }
+    public void reloadResetSignConfig(){
+        co = getConfig();
     }
 }
