@@ -14,7 +14,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 public class ResetSignCommand implements CommandExecutor {
 
     private final ResetSign rs;
-    public ResetSignCommand(ResetSign resetSign, FileConfiguration config) {
+    public ResetSignCommand(ResetSign resetSign) {
         rs=resetSign;
     }
 

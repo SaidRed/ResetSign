@@ -16,7 +16,7 @@ import org.bukkit.plugin.Plugin;
 public class ResetSignEvent implements Listener {
 
     private final Plugin rs;
-    public ResetSignEvent(ResetSign resetSign, FileConfiguration config) {
+    public ResetSignEvent(ResetSign resetSign) {
         rs=resetSign;
     }
 

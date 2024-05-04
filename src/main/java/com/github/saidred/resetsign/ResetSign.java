@@ -12,10 +12,10 @@ public final class ResetSign extends JavaPlugin {
         saveDefaultConfig();
         co = getConfig();
 
-        this.getServer().getPluginManager().registerEvents(new ResetSignEvent(this,co),this);
+        this.getServer().getPluginManager().registerEvents(new ResetSignEvent(this),this);
 
-        getCommand("resetSign").setExecutor(new ResetSignCommand(this,co));
-        getCommand("configReload").setExecutor(new ConfigReload(this,co));
+        getCommand("resetSign").setExecutor(new ResetSignCommand(this));
+        getCommand("configReload").setExecutor(new ConfigReload(this));
     }
 
     @Override

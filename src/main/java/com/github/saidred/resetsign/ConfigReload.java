@@ -8,7 +8,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class ConfigReload implements CommandExecutor {
     ResetSign rs;
-    public ConfigReload(ResetSign resetSign, FileConfiguration fileConfiguration){
+    public ConfigReload(ResetSign resetSign){
         rs=resetSign;
     }
 
