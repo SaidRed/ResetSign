@@ -9,7 +9,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerSignOpenEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
@@ -21,8 +23,7 @@ public class ResetSignEvent implements Listener {
     }
 
     @EventHandler
-    public void onPlayerInteract(PlayerInteractEvent event){
-        if(event.getAction()!= Action.RIGHT_CLICK_BLOCK||event.getClickedBlock()==null)return;
+    public void onSignChange(PlayerSignOpenEvent event){
         Player player=event.getPlayer();
         FileConfiguration config=rs.getConfig();
         if( config.getBoolean("playerLogMode") ) player.sendMessage("=== Reset Sign Event Start ===");
@@ -30,14 +31,8 @@ public class ResetSignEvent implements Listener {
             if( config.getBoolean("playerLogMode") ) player.sendMessage("* GameMode false");
             return;
         }
-        BlockState bs=event.getClickedBlock().getState();
-        if( config.getBoolean("playerLogMode") ) player.sendMessage("> Get ClickedBlock State");
-        if( !(bs instanceof Sign) ){
-            if( config.getBoolean("playerLogMode") ) player.sendMessage("> Target Not Sign");
-            return;
-        }
 
-        Sign sign=(Sign) bs;
+        Sign sign=event.getSign();
         SignSide back=sign.getSide(Side.BACK);
         String line0=back.getLine(0);
         if( config.getBoolean("playerLogMode") ) player.sendMessage(">> Get Back Text Line First");
