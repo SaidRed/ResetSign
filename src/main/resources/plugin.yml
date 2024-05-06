@@ -8,5 +8,5 @@ commands:
     description: click on the sign to reset item NBT.
     usage: /resetSign (targeting sign)
   configReload:
-    description: click on the sign to reset item NBT.
+    description: reload config file.
     usage: /configReload
